@@ -10,15 +10,17 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import jdk.nashorn.internal.ir.Block;
 
 /**
  *
  * @author hcadavid
  */
 public class HostBlackListsValidator {
-
+    private LinkedList<Block> segmentacion=new LinkedList<Block>();
     private static final int BLACK_LIST_ALARM_COUNT=5;
-    
+    private int hilos=0;
+    private static int rango;
     /**
      * Check the given host's IP address in all the available black lists,
      * and report it as NOT Trustworthy when such IP was reported in at least
@@ -29,26 +31,20 @@ public class HostBlackListsValidator {
      * @param ipaddress suspicious host's IP address.
      * @return  Blacklists numbers where the given host's IP address was found.
      */
-    public List<Integer> checkHost(String ipaddress){
+    public List<Integer> checkHost(String ipaddress, int N){
         
         LinkedList<Integer> blackListOcurrences=new LinkedList<>();
         
         int ocurrencesCount=0;
         
         HostBlacklistsDataSourceFacade skds=HostBlacklistsDataSourceFacade.getInstance();
+        //
+        LinkedList<Block> segmentacion=new LinkedList<Block>();
+        
         
         int checkedListsCount=0;
         
-        for (int i=0;i<skds.getRegisteredServersCount() && ocurrencesCount<BLACK_LIST_ALARM_COUNT;i++){
-            checkedListsCount++;
-            
-            if (skds.isInBlackListServer(i, ipaddress)){
-                
-                blackListOcurrences.add(i);
-                
-                ocurrencesCount++;
-            }
-        }
+        //Codigo para hacerlo concurrente
         
         if (ocurrencesCount>=BLACK_LIST_ALARM_COUNT){
             skds.reportAsNotTrustworthy(ipaddress);
