@@ -16,10 +16,13 @@ Desarrollo Laboratorio 3
 
 ![](img/2.2InicioStart.png)
 
-        3.Cambie start por run y mire el resultado.
+        3.Ejecute y revise la salida por pantalla.
 
 ![](img/3InicioEvidencia.png)
 
+        4.Cambie start por run y mire el resultado.
+
+![](img/InicioRun.png)
 Parte2 -- Blac List Search Exercise
 
     1. Cree una clase Thread que represente el ciclo de vida de un hilo que busca un segmento del grupo de servidores disponibles. 
