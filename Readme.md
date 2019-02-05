@@ -3,7 +3,7 @@ Desarrollo Laboratorio 3
     1. Complete la clase Count Thread y defina un ciclo de vida d eun hilo para que imprima los numeros
     entre A y B y los muestre en pantalla.
 
-     ![](img/1CounThread.png)
+![](img/1CounThread.png)
 
 
     2.Complete el metodo main de CountMainThread de la clase:
