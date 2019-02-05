@@ -10,15 +10,15 @@ Desarrollo Laboratorio 3
 
         1 .Cree 3 hilos ed tipo CountThread y asigneles intervalos de [0,99], [99,199] ,[199,299]
 
-         ![](img/2.13hilos.png)
+![](img/2.13hilos.png)
 
         2.Empiece cada hilo con Start.
 
-         ![](img/2.2InicioStart.png)
+![](img/2.2InicioStart.png)
 
         3.Cambie start por run y mire el resultado.
 
-            ![](img/3InicioEvidencia.png)
+![](img/3InicioEvidencia.png)
 
 Parte2 -- Blac List Search Exercise
 
@@ -29,7 +29,7 @@ Parte2 -- Blac List Search Exercise
             Antes en la clase HostBlackListValidator se crean los hilos, los cuales se le asigna un segmento a revisar y asi reducir
             el tiempo de busqueda.
 
-             ![](img/diag.png)
+![](img/revisandoIpMala.png)
 
 
     2. Agregue al método checkHost un parámetro entero N, correspondiente al número de subprocesos entre los que 
@@ -45,36 +45,35 @@ Parte2 -- Blac List Search Exercise
         procesesar las IPs.
     
 
-             ![](img/diag.png)
+![](img/RevisandoIpSana.png)
 
         2.1.Para reducir el tiempo de búsqueda y no se siga buscando un servidor cuando ya cumplio para que el servidor sea reportado, tendremos que tener un get que traiga desde la clase block la lista de ocurrencias que vaya registrando y sumarla a la que tenga actualmente, y cuando este llegue por lo menos a 5, detenga el resto de hilos y no procese más.
     
     3. Evaluacion de Desempeño
 
         1. Un Solo hilo
-            ![](img/diag.png)
+![](img/Solo1Hilo.png)
         
 
         2. Tantos Hilos Como nucleos de Procesamiento.
 
-            ![](img/diag.png)
+![](img/TantosHiloComoNucleos.png)
 
         3. Tantos hios como el doble de nucleos de procesamiento.
 
-            ![](img/diag.png)
+![](img/TantosHilosDobleProce.png)
 
         4. 50 Hilos
 
-            ![](img/diag.png)
+![](img/50Hilos.png)
 
         5. 100 Hilos 
 
-
-            ![](img/diag.png)
+![](img/100hilos.png)
 
         Grafica
 
-            ![](img/diag.png)
+![](img/Grafica.png)
 
 
         1.El mejor desempeño no se logra con 500 hilos porque al final son los núcleos 
