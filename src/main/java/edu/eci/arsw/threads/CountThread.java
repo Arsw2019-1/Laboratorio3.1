@@ -5,43 +5,24 @@
  */
 package edu.eci.arsw.threads;
 
-public class CountThread extends Thread{
-   int a;
-   int b;
-    
-    
-   public CountThread(int a, int b){
-       super("Iniciando el hilo");
-       this.a=a;
-       this.b=b;
+public class CountThread implements Runnable {
 
-       System.out.println("my thread created" + this);
-       start();
-       //CountThread ob=new CountThread();
-       //ob.run();
-       
- 
-   } 
+    private int numa;
+    private int numb;
 
-  public void run()
-   {
-     try
-     {
-         for (int i=a;i<b;i++){
-        
-            System.out.println("El numero va : "+i);
-            System.out.println("El hilo es : "+this);
-            Thread.sleep(1000);
-        } 
-     }
-     catch(InterruptedException e)
-     {
-        System.out.println("my thread interrupted");
-     }
-     System.out.println("My thread run is over" );
-   }
+    public CountThread(int numa, int numb) {
+        super();
+        this.numa = numa;
+        this.numb = numb;
+    }
+
     
     
-    
-    
+    @Override
+    public void run() {
+        for (int i = numa; i < numb + 1; i++) {
+            System.out.println("Los numeros son:" + i);
+
+        }
+    }
 }

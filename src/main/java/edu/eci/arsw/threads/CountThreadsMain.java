@@ -25,17 +25,13 @@ public class CountThreadsMain {
         CountThread temp1=new CountThread(0, 99);
         CountThread temp2=new CountThread(99, 199);
         CountThread temp3=new CountThread(200, 299);
-        temp1.run();
-        temp2.run();
-        temp3.run();        
-        //temp1.start();
-        //temp2.start();
-        //temp3.start();        
-        //temp1.start();
-        //temp2.start();
-        //temp3.start();
-        
-        //}
+        //temp1.run();
+        //temp2.run();
+        //temp3.run();        
+        temp1.start();
+        temp2.start();
+        temp3.start();        
+
         
     }
     

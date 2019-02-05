@@ -1,15 +1,24 @@
 Desarrollo Laboratorio 3
 
-1 Complete la clase Count Thread y defina un ciclo de vida d eun hilo para que imprima los numeros
-entre A y B y los muestre en pantalla.
+    1. Complete la clase Count Thread y defina un ciclo de vida d eun hilo para que imprima los numeros
+    entre A y B y los muestre en pantalla.
 
-2.Complete el metodo main de CountMainThread de la clase:
-
-    1 .Cree 3 hilos ed tipo CountThread y asigneles intervalos de [0,99], [99,199] ,[199,299]
-    2.Empiece cada hilo con Start.
-    3.Cambie start por run y mire el resultado.
+     ![](img/1CounThread.png)
 
 
+    2.Complete el metodo main de CountMainThread de la clase:
+
+        1 .Cree 3 hilos ed tipo CountThread y asigneles intervalos de [0,99], [99,199] ,[199,299]
+
+         ![](img/2.13hilos.png)
+
+        2.Empiece cada hilo con Start.
+
+         ![](img/2.2InicioStart.png)
+
+        3.Cambie start por run y mire el resultado.
+
+            ![](img/3InicioEvidencia.png)
 
 Parte2 -- Blac List Search Exercise
 
@@ -19,6 +28,9 @@ Parte2 -- Blac List Search Exercise
         R: Se creo una clase llamada Bllock, la cual recibe un segmento de la lsita de servidores y analiza en busqueda del servidor malicioso.
             Antes en la clase HostBlackListValidator se crean los hilos, los cuales se le asigna un segmento a revisar y asi reducir
             el tiempo de busqueda.
+
+             ![](img/diag.png)
+
 
     2. Agregue al método checkHost un parámetro entero N, correspondiente al número de subprocesos entre los que 
         se realizará la búsqueda (recuerde tener en cuenta si N es par o impar).    
@@ -31,3 +43,51 @@ Parte2 -- Blac List Search Exercise
         respectivas. Para lograr este comportamiento de espera, revise el método de unión de la API de concurrencia de Java. 
         R: Se agrego un N, de tal manera que en este entero sera dividida la lista y sera creada un numero igual de hilos para
         procesesar las IPs.
+    
+
+             ![](img/diag.png)
+
+        2.1.Para reducir el tiempo de búsqueda y no se siga buscando un servidor cuando ya cumplio para que el servidor sea reportado, tendremos que tener un get que traiga desde la clase block la lista de ocurrencias que vaya registrando y sumarla a la que tenga actualmente, y cuando este llegue por lo menos a 5, detenga el resto de hilos y no procese más.
+    
+    3. Evaluacion de Desempeño
+
+        1. Un Solo hilo
+            ![](img/diag.png)
+        
+
+        2. Tantos Hilos Como nucleos de Procesamiento.
+
+            ![](img/diag.png)
+
+        3. Tantos hios como el doble de nucleos de procesamiento.
+
+            ![](img/diag.png)
+
+        4. 50 Hilos
+
+            ![](img/diag.png)
+
+        5. 100 Hilos 
+
+
+            ![](img/diag.png)
+
+        Grafica
+
+            ![](img/diag.png)
+
+
+        1.El mejor desempeño no se logra con 500 hilos porque al final son los núcleos 
+            del procesador que nos indicarán la rapidez del software, con esto quiero 
+            decir que entre más hilos podemos volver más lento el software, en este caso 
+            sería tener un procesador con una frecuencia más alta y menos hilos y se obtiene 
+            un mejor resultado en rendimiento.
+
+
+        2. EL tiempo de que dura en terminar el problema se reduce aproximadamente 10 segundos.
+
+        3. No del todo, porque la capacidad de los núcleos de las 100 máquinas se desperdiciaria, 
+            aunque sí mejoraría al usar en una máquina esos 100 hilos. Si c no es por lo menos mayor 
+            o igual a 50 podría ver una mejoría en la  la ley de Amdahls.
+
+
